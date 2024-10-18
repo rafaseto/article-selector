@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './styles.css'
 
 function App() {
     const [article, setArticle] = useState(null);
@@ -39,11 +40,15 @@ function App() {
     if (!article) return <div>Loading...</div>
 
     return (
-        <div>
-            <h1>{article.title}</h1>
-            <p>{article.abstract}</p>
-            <button onClick={() => answer('accept')}>Accept</button>
-            <button onClick={() => answer('reject')}>Reject</button>
+        <div className='container'>
+            <h1 className='sticky-title'>{article.title}</h1>
+            <div className='abstract-container'>
+                <p>{article.abstract}</p>
+            </div>
+            <div className='button-container'>
+                <button onClick={() => answer('accept')}>Accept</button>
+                <button onClick={() => answer('reject')}>Reject</button>
+            </div>
         </div>
     );
 }
